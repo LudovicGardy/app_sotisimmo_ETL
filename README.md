@@ -68,31 +68,20 @@
     - Ensure Docker is installed and running on your system.
 
 2. **Navigate to project directory**
-    - For multiple containers:
-        ```bash
-        cd [path-to-app-folder-containing-compose.yaml]
-        ```
-    - For a single container:
-        ```bash
-        cd [path-to-app-folder-containing-Dockerfile]
-        ```
+    ```bash
+    cd [path-to-app-folder-containing-Dockerfile]
+    ```
 
-3. **Build the image (if does not already exit)**
-    - For multiple containers:
-        ```bash
-        docker compose up --build
-        ```
-    - For a single container:
-        ```bash
-        docker build -t my-app-title .
-        ```
+3. **Build the image**
+    ```bash
+    docker build -t sotisimmo-etl .
+    ```
 
-4. **Run the containers**
-    - For multiple containers:
-        ```bash
-        docker run -p 8501:8501 my-app-title
-        ```
-    - The application will be accessible at `http://localhost:8501`.
+4. **Run the container**
+    ```bash
+    docker run --rm sotisimmo-etl
+    ```
+    - The ETL runs `main.py` and exposes no port.
 
 5. **Other notes**
     - ⚠️ If you encounter issues with `pymssql`, adjust its version in `requirements.txt` or remove it before building the Docker image.
