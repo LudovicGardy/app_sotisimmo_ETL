@@ -79,9 +79,10 @@
 
 4. **Run the container**
     ```bash
-    docker run --rm sotisimmo-etl
+    docker run --rm --env-file .env sotisimmo-etl
     ```
     - The ETL runs `main.py` and exposes no port.
+    - `.env` (copied from `.env.example`) stays out of the image through `.dockerignore`: `--env-file` passes its values to the container.
 
 5. **Other notes**
     - ⚠️ If you encounter issues with `pymssql`, adjust its version in `requirements.txt` or remove it before building the Docker image.

@@ -1,0 +1,27 @@
+# The Dockerfile does COPY . . : without this file, everything lying in the app folder
+# (.env, .git, caches, data and logs) would enter the image and be sent as build context.
+
+.git
+.github
+.gitignore
+.dockerignore
+
+# Secrets. The container gets them from `docker run --env-file .env`: modules/config.py
+# reads the process environment when it finds no .env file.
+.env
+.env.*
+
+# Python, caches
+**/__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Archives, notebooks and logs, not needed at runtime
+_archives/
+notebooks/
+*.ipynb
+*.log
+
+.DS_Store
