@@ -70,7 +70,7 @@
 2. **Navigate to project directory**
     - For multiple containers:
         ```bash
-        cd [path-to-app-folder-containing-docker-compose.yml]
+        cd [path-to-app-folder-containing-compose.yaml]
         ```
     - For a single container:
         ```bash
@@ -80,7 +80,7 @@
 3. **Build the image (if does not already exit)**
     - For multiple containers:
         ```bash
-        docker-compose up --build
+        docker compose up --build
         ```
     - For a single container:
         ```bash
